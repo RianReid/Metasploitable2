@@ -11,11 +11,11 @@ ahead and installed Nessus on my Kali Linux VM.
 
 ![image of install](images/1.PNG)  
 
-Once it was up and running I did a basic network scan as well as an advanced network scan with both returning ~ 72 vulnerabilities.
+Once it was up and running I did a basic network scan as well as an advanced network scan on the Metasploitable2 IP address 10.0.2.4 with each scan both returning approximately 72 vulnerabilities.
 
 ![image of scan](images/2.PNG)
 
-When looking through some of the critical and high severity results I discovered that some of them mention how the vulnerability can be exploited and many listed you could use metasploit so I installed metasploit on the Kali Linux VM and decided to give it a try.
+When looking through some of the critical and high severity results I discovered that some of them mention how the vulnerability may be exploited, and many listed you could use metasploit, so I installed metasploit on the Kali Linux VM and decided to give it a try.
 
 ### NFS Exported Share Information Disclosure
 
