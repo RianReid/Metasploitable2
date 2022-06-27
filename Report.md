@@ -73,5 +73,12 @@ Shown below I learned that I'd be able to mount to the root filesystem, so I pla
 ![image of process11](images/6.PNG)
 ![image of process12](images/19.PNG)
 
+## DVWA
+
+### Command Execution
+
+![image of process13](images/20.PNG)
+![image of process14](images/21.PNG)
+
 ## Conclusion
 Overall I find Metasploitable2 very interesting to mess around on and practice penetration testig with. I think this was very helpful to practice what I learned in college and to push myself to see what I could figure out on my own and with the help of some research. I plan to keep on exploiting more vulnerabilities and tessting my knowledge on how penetration testing works. Thank you for challenging me with this project and report, it was a great refresher on Linux/Github and I appreciate the opportunity to show you my passion!
