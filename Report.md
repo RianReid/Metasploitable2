@@ -41,13 +41,24 @@ With the use of my nmap scan on the Metasploitable2 IP address I found that for 
 
 ![image of nmap scan2](images/7.PNG)
 
-To begin I started up metasploit and did a search for unreal to find the unrealIRCD exploit. After that I looked at the options for the exploit and found that I needed to set the target host and that the target port was already set to 6667 which I found from the nmap scan. After doing some research I learned this exploit may not have a payload built into it so I looked at the payload options and learned that the bind_ruby option gives you the highest privilage so that's what I used. I learned that the payload should listen for a connection and then spawn a command shell once exploited and once I set the payload and entered exploit it worked and opened a command shell on the remote machine. Once I got the shell I ran a couple of commands to show that I had root privilage and also included the encrypted root user passsword from the /etc/shadow file.
+To begin I started up metasploit and did a search for unreal to find the unrealIRCD exploit. After that I looked at the options for the exploit and found that I needed to set the target host and that the target port was already set to 6667 which I found from the nmap scan. After doing some research I learned this exploit may not have a payload built into it so I looked at the payload options and learned that the bind_ruby option gives you the highest privilege so that's what I used. I learned that the payload should listen for a connection and then spawn a command shell once exploited and once I set the payload and ran exploit it worked and opened a command shell on the remote machine. Once I got the shell I ran a couple of commands to show that I had root privilege and also included the encrypted root user passsword from the /etc/shadow file.
 
 ![image of process1](images/9.PNG)
 ![image of process2](images/10.PNG)
 ![image of process3](images/11.PNG)
 
 ### Exploiting Port 139 & 445 (Samba)
+Description: Metasploitable2 is using Samba version 3.0.20, which allows an attacker to execute arbitrary commands, by specifying a username containg shell meta characters.
+
+![image of nmap scan3](images/15.PNG)
+
+For this exploit I started up metasploit and did a search for samba to find the correct exploit. After that I looked at the options for the exploit and found that I needed to set the target host and that the target port was already set to 139 but since 445 was also listed in the nmap scan I decided to set the target port to 445 instead. After setting the target host and the port I ran exploit and was able to get another shell with root privilege and was able to run ifoncifg as well as show that I was the root user.
+
+![image of process4](images/12.PNG)
+![image of process5](images/13.PNG)
+![image of process6](images/14.PNG)
+
+
 
 
 
