@@ -90,7 +90,7 @@ Here is an exmaple of a normal entry of 1 which returns user 1 from the database
 
 ![image of user1](images/user1.PNG)
 
-Here is an example of an SQL Injection by closing off the statement with the quote ' and then adding a Union statement to also select the user and their password from the users table.
+Here is an example of SQL Injection by closing off the statement with the quote ' and then adding a Union statement to also select the user and their password from the users table.
 
 ![image of userpass](images/us4.PNG)
 
@@ -102,7 +102,7 @@ For this one I made a little php script shown below called new.php and saved it 
 ![image of php](images/v1.PNG)
 ![image of link](images/v2.PNG)
 
-After uploading the file successfully I copied the file location and appended it to the search after /upload. After hitting go it borught me to a page but there was an error stating that the system function couldn't execute a blank command so back in the bar after new.php I added the cmd that I wanted which in this example was just ls and after hitting go again I got the list of files within the uploads directory. The process is shown below.
+After uploading the file successfully I copied the file location and appended it to the search after /upload. After hitting go it borught me to the page but there was an error stating that the system function couldn't execute a blank command so back in the bar after new.php I added the command that I wanted which in this example was just ls, and after hitting go again I got the list of files within the uploads directory. The process is shown below.
 
 ![image of v3](images/v3.PNG)
 ![image of v4](images/v4.PNG)
