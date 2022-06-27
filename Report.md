@@ -29,8 +29,7 @@ NFS stands for network file system and helps to share files and folders between 
 
 ![image of nmap scan1](images/4.PNG)
 
-As shown below I was learned that I'd be able to mount to the root filesystem, so I planned to create an ssh key on my attacking machine(Kali VM), mount to the nfs exports, and then add my key to the root users account authorized keys file.
-5?
+Shown below I learned that I'd be able to mount to the root filesystem, so I planned to create an ssh key on my attacking machine(Kali VM), mount to the nfs exports, and then add my key to the root users account authorized keys file.
 
 ### UnrealIRCd Backdoor Detection
 Description: The remote IRC server is a version of UnrealIRCd with a backdoor that allows an attacker to execute arbitrary code on the affected host.
@@ -38,15 +37,20 @@ Description: The remote IRC server is a version of UnrealIRCd with a backdoor th
 ![image of v2](images/8.PNG)
 
 UnrealIRCD is an open source interent relay chat daemon and happens to be the most popular IRC server with over 40% of the market share.
-With the use of my nmap scan on the Metasploitable2 IP address I found that for this specific vulnerability the ports I would exploit were ports 6667 and 6697.
+With the use of my nmap scan on the Metasploitable2 IP address I found that for this specific vulnerability the ports I could exploit were ports 6667 or 6697.
 
 ![image of nmap scan2](images/7.PNG)
 
-TO begin I started up metasploit and did a search for unreal to find the unrealIRCD exploit. After that I looked at the options for the exploit and found that I needed to set the target host and that the target port was already set to 6667 which I found from the nmap scan. After doing some research I learned this exploit doesn't have a payload built into it so I looked at the payload options and learned that the bind_ruby option gives you the highest privilage so that's what I used. I learned that the payload should listen for a connection and then spawn a command shell once exploited and once I set the payload and entered exploit it worked and opened a command shell on the remote machine!
+To begin I started up metasploit and did a search for unreal to find the unrealIRCD exploit. After that I looked at the options for the exploit and found that I needed to set the target host and that the target port was already set to 6667 which I found from the nmap scan. After doing some research I learned this exploit may not have a payload built into it so I looked at the payload options and learned that the bind_ruby option gives you the highest privilage so that's what I used. I learned that the payload should listen for a connection and then spawn a command shell once exploited and once I set the payload and entered exploit it worked and opened a command shell on the remote machine. Once I got the shell I ran a couple of commands to show that I had root privilage and also included the encrypted root user passsword from the /etc/shadow file.
 
 ![image of process1](images/9.PNG)
 ![image of process2](images/10.PNG)
 ![image of process3](images/11.PNG)
+
+### Exploiting Port 139 & 445 (Samba)
+
+
+
 
 
 
