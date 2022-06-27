@@ -77,10 +77,36 @@ Shown below I learned that I'd be able to mount to the root filesystem, so I pla
 
 ### Command Execution
 Description: The purpose of the command injection attack is to inject and execute commands specified by the attacker in the vulnerable application. In situation like this, the application, which executes unwanted system commands, is like a pseudo system shell, and the attacker may use it as any authorized system user. However, commands are executed with the same privileges and environment as the application has. Command injection attacks are possible in most cases because of lack of correct input data validation, which can be manipulated by the attacker (forms, cookies, HTTP headers etc.).
-- Example: 10.0.2.4 && dir or 10.0.2.4 | dir
-![image of process13](images/20.PNG)
+- Example: 10.0.2.4 | whoami and 10.0.2.4 | pwd
 
+![image of process13](images/20.PNG)
 ![image of process14](images/21.PNG)
+
+### SQL Injection
+Description: A SQL injection attack consists of insertion or "injection" of a SQL query via the input data from the client to the application. A successful SQL injection exploit can read sensitive data from the database, modify database data (Insert/Update/Delete), execute administration operations on the database (such as shutdown the DBMS), recover the content of a given file present on the DBMS file system and in some cases issue commands to the operating system. SQL injection attacks are a type of injection attack, in which SQL commands are injected into data-plane input in order to effect the execution of predefined SQL commands.
+- The 'id' variable within this PHP script is vulnerable to SQL injection.
+
+Here is an exmaple of a normal entry of 1 which returns user 1 from the database.
+
+![image of user1](images/user1.PNG)
+
+Here is an example of an SQL Injection by closing off the statement with the quote ' and then adding a Union statement to also select the user and their password from the users table.
+
+![image of userpass](images/us4.PNG)
+
+### File Upload
+Description: Uploaded files represent a significant risk to applications. The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step.
+
+For this one I made a little php script shown below called new.php and saved it to my desktop so that I could then upload it to the DVWA.
+
+![image of php](images/v1.PNG)
+![image of link](images/v2.PNG)
+
+After uploading the file successfully I copied the file location and appended it to the search after /upload. After hitting go it borught me to a page but there was an error stating that the system function couldn't execute a blank command so back in the bar after new.php I added the cmd that I wanted which in this example was just ls and after hitting go again I got the list of files within the uploads directory. The process is shown below.
+
+![image of v3](images/v3.PNG)
+![image of v4](images/v4.PNG)
+![image of v5](images/v5.PNG)
 
 ## Conclusion
 Overall I find Metasploitable2 very interesting to mess around on and practice penetration testig with. I think this was very helpful to practice what I learned in college and to push myself to see what I could figure out on my own and with the help of some research. I plan to keep on exploiting more vulnerabilities and tessting my knowledge on how penetration testing works. Thank you for challenging me with this project and report, it was a great refresher on Linux/Github and I appreciate the opportunity to show you my passion!
