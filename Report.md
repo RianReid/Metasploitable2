@@ -20,19 +20,9 @@ When looking through some of the critical and high severity results I discovered
 
 ## Exploiting the Vulnerabilities
 
-### NFS Exported Share Information Disclosure
-Description: At least one of the NFS shares exported by the remote server could be mounted by the scanning host. An attacker may be able to leverage this to read (and possibly write) files on remote host.
-
-![image of v1](images/3.PNG)
-
-NFS stands for network file system and helps to share files and folders between systems, it also enables you to mount a remote share locally. This all depends on remote procedure calls or RPC service which is controlled by the rpcbind service. In order to find the ports that control rpcbind and NFS I ran an nmap scan on the Metasploitable2 IP address I found that for this specific vulnerability the ports I would exploit were ports 111 for rpcbind and port 2049 for NFS.
-
-![image of nmap scan1](images/4.PNG)
-
-Shown below I learned that I'd be able to mount to the root filesystem, so I planned to create an ssh key on my attacking machine(Kali VM), mount to the nfs exports, and then add my key to the root users account authorized keys file.
-
 ### UnrealIRCd Backdoor Detection
 Description: The remote IRC server is a version of UnrealIRCd with a backdoor that allows an attacker to execute arbitrary code on the affected host.
+- vulnerability found from Nessus
 
 ![image of v2](images/8.PNG)
 
@@ -58,13 +48,30 @@ For this exploit I started up metasploit and did a search for samba to find the 
 ![image of process5](images/13.PNG)
 ![image of process6](images/14.PNG)
 
-### 
+### Exploiting TELNET
+Description: This module will test a telnet login on a range of machines and report successful logins.
 
+For this exploit I created a users file as well as a passwords file shown below with some basic usernames and passwords and placed it on my desktop. After starting up metasploit I began the telnet_login vulnerability and looked at the options to set everything up. I changed the target host to the Metasploitable2 VM, set stop on success adn vebose to true, and also set the user_file and the pass_file to take the files I created on my desktop. Once I hit run it iterated throguh the list trying each user and password combination and stopped once it got the correct match which spawned a shell where I was able to run a couple commands as the msfadmin user.
 
+![image of process7](images/16.PNG)
+![image of process8](images/17.PNG)
+![image of process9](images/18.PNG)
 
+### NFS Exported Share Information Disclosure
+Description: At least one of the NFS shares exported by the remote server could be mounted by the scanning host. An attacker may be able to leverage this to read (and possibly write) files on remote host.
+- vulnerability found from Nessus
 
+![image of v1](images/3.PNG)
 
+NFS stands for network file system and helps to share files and folders between systems, it also enables you to mount a remote share locally. This all depends on remote procedure calls or RPC service which is controlled by the rpcbind service. In order to find the ports that control rpcbind and NFS I ran an nmap scan on the Metasploitable2 IP address I found that for this specific vulnerability the ports I would exploit were ports 111 for rpcbind and port 2049 for NFS.
 
+![image of nmap scan1](images/4.PNG)
 
+Shown below I learned that I'd be able to mount to the root filesystem, so I planned to create an ssh key on my attacking machine(Kali VM), mount to the nfs, and then add my key to the root users account authorized keys file, this process is shown below. Unfortunately for this exploit I was unable to successfully ssh into the Metasploitable2 VM. From the examples I found my proccess should've worked but for some reason I was still prompted for a password even though I left the ssh passphrase as empty, but I will keep tinkering with it to see if I can eventually ssh in, this was jsut as far as I got!
 
+![image of process10](images/5.PNG)
+![image of process11](images/6.PNG)
+![image of process12](images/19.PNG)
 
+## Conclusion
+Overall I find Metasploitable2 very interesting to mess around on and practice penetration testig with. I think this was very helpful to practice what I learned in college and to push myself to see what I could figure out with on my own and with the help of some research. I plan to keep on exploiting more vulnerabilities and tessting my knowledge on how pen testing works. Thank you for challenging me with this project and report, it was a great refresher on Linux/Github and I appreciate the opportunity to show you my passion!
