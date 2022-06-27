@@ -76,8 +76,10 @@ Shown below I learned that I'd be able to mount to the root filesystem, so I pla
 ## DVWA
 
 ### Command Execution
-
+Description: The purpose of the command injection attack is to inject and execute commands specified by the attacker in the vulnerable application. In situation like this, the application, which executes unwanted system commands, is like a pseudo system shell, and the attacker may use it as any authorized system user. However, commands are executed with the same privileges and environment as the application has. Command injection attacks are possible in most cases because of lack of correct input data validation, which can be manipulated by the attacker (forms, cookies, HTTP headers etc.).
+- Example: 10.0.2.4 && dir or 10.0.2.4 | dir
 ![image of process13](images/20.PNG)
+
 ![image of process14](images/21.PNG)
 
 ## Conclusion
